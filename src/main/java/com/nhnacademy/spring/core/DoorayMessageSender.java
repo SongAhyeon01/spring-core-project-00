@@ -2,12 +2,13 @@ package com.nhnacademy.spring.core;
 
 import com.nhn.dooray.client.DoorayHook;
 import com.nhn.dooray.client.DoorayHookSender;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class DoorayMessageSender implements MessageSender {
 
     private final DoorayHookSender doorayHookSender;
 
-    public DoorayMessageSender(DoorayHookSender doorayHookSender) {
+    public DoorayMessageSender(@Qualifier("doorayHookSender") DoorayHookSender doorayHookSender) {
         this.doorayHookSender = doorayHookSender;
     }
 

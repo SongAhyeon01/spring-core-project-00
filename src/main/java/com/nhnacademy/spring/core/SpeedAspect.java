@@ -1,9 +1,17 @@
 package com.nhnacademy.spring.core;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.util.StopWatch;
 
+@Aspect
 public class SpeedAspect {
+    @Pointcut("execution(public boolean com.nhnacademy.spring.core.DoorayMessageSender.sendMessage(..))")
+    public void doorayMessageSenderPointcut(){}
+
+    @Around("doorayMessageSenderPointcut()")
     public Object doStopWatch(ProceedingJoinPoint pjp) throws Throwable {
         String className = pjp.getTarget().getClass().getSimpleName();
         String methodName = pjp.getSignature().getName();

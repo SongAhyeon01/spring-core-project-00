@@ -1,10 +1,14 @@
 package com.nhnacademy.spring.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class MessageSendService {
 
     private final MessageSender messageSender;
 
-    public MessageSendService(MessageSender messageSender) {
+    @Autowired
+    public MessageSendService(@Qualifier("doorayMessageSender") MessageSender messageSender) {
         this.messageSender = messageSender;
     }
 

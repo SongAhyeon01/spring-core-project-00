@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:aop="http://www.springframework.org/schema/aop"-->
+<!--       xsi:schemaLocation="-->
+<!--        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">-->
 
-    <bean id="messageSendService" class="com.nhnacademy.spring.core.MessageSendService">
-        <constructor-arg ref="doorayMessageSender"/>
-    </bean>
+<!--    <bean id="messageSendService" class="com.nhnacademy.spring.core.MessageSendService">-->
+<!--        <constructor-arg ref="doorayMessageSender"/>-->
+<!--    </bean>-->
 
-    <bean id="doorayMessageSender" class="com.nhnacademy.spring.core.DoorayMessageSender">
-        <constructor-arg ref="doorayHookSender"/>
-    </bean>
+<!--    <bean id="doorayMessageSender" class="com.nhnacademy.spring.core.DoorayMessageSender">-->
+<!--        <constructor-arg ref="doorayHookSender"/>-->
+<!--    </bean>-->
 
-    <bean id="doorayHookSender" class="com.nhn.dooray.client.DoorayHookSender">
-        <constructor-arg>
-            <bean class="org.springframework.web.client.RestTemplate"/>
-        </constructor-arg>
-        <constructor-arg value="https://hook.dooray.com/services/3204376758577275363/3738651962004364986/HByzZBRuRu69-EUTsWR0tg"/>
-    </bean>
+<!--    <bean id="doorayHookSender" class="com.nhn.dooray.client.DoorayHookSender">-->
+<!--        <constructor-arg>-->
+<!--            <bean class="org.springframework.web.client.RestTemplate"/>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg value="https://hook.dooray.com/services/3204376758577275363/3738651962004364986/HByzZBRuRu69-EUTsWR0tg"/>-->
+<!--    </bean>-->
 
-    <bean id="speedAspect" class="com.nhnacademy.spring.core.SpeedAspect"/>
+<!--    <bean id="speedAspect" class="com.nhnacademy.spring.core.SpeedAspect"/>-->
 
-    <aop:config>
-        <aop:pointcut id="doorayMessageSenderPointcut" expression="execution(public boolean com.nhnacademy.spring.core.DoorayMessageSender.sendMessage(..))"/>
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="doorayMessageSenderPointcut" expression="execution(public boolean com.nhnacademy.spring.core.DoorayMessageSender.sendMessage(..))"/>-->
 
-        <aop:aspect id="speedAspect" ref="speedAspect">
-            <aop:around
-                    pointcut-ref="doorayMessageSenderPointcut"
-                    method="doStopWatch"/>
-        </aop:aspect>
-    </aop:config>
+<!--        <aop:aspect id="speedAspect" ref="speedAspect">-->
+<!--            <aop:around-->
+<!--                    pointcut-ref="doorayMessageSenderPointcut"-->
+<!--                    method="doStopWatch"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
 
-</beans>
+<!--</beans>-->
