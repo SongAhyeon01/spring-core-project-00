@@ -11,16 +11,6 @@ import org.springframework.web.client.RestTemplate;
 public class JavaConfig {
 
     @Bean
-    public MessageSendService messageSendService() {
-        return new MessageSendService(doorayMessageSender());
-    }
-
-    @Bean
-    public MessageSender doorayMessageSender() {
-        return new DoorayMessageSender(doorayHookSender());
-    }
-
-    @Bean
     public DoorayHookSender doorayHookSender() {
         return new DoorayHookSender(restTemplate(), "https://hook.dooray.com/services/3204376758577275363/3738651962004364986/HByzZBRuRu69-EUTsWR0tg");
     }
@@ -28,11 +18,6 @@ public class JavaConfig {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
-    }
-
-    @Bean
-    public SpeedAspect speedAspect() {
-        return new SpeedAspect();
     }
 
 }

@@ -8,7 +8,7 @@ public class BeanMain {
             MessageSendService service = context.getBean("messageSendService", MessageSendService.class);
 
             User user = new User("no name", "010-0000-0000");
-            String message = "test2";
+            String message = "test3";
 
             service.doMessage(user, message);
         }
