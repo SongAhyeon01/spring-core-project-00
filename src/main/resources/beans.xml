@@ -16,7 +16,7 @@
         <constructor-arg>
             <bean class="org.springframework.web.client.RestTemplate"/>
         </constructor-arg>
-        <constructor-arg value="https://hook.dooray.com/services/3204376758577275363/3738651962004364986/HByzZBRuRu69-EUTsWR0tg"/>
+        <constructor-arg value="{message url}"/>
     </bean>
 
 </beans>
