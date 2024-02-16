@@ -8,7 +8,7 @@ public class XmlMain {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml")) {
             MessageSendService service = context.getBean("messageSendService", MessageSendService.class);
 
-            User user = new User("${작성자 이름}", "010-0000-0000");
+            User user = new User("no name", "010-0000-0000");
             String message = "test";
 
             service.doMessage(user, message);

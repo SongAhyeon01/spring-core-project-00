@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <bean id="messageSendService" class="com.nhnacademy.spring.core.MessageSendService">
         <constructor-arg ref="doorayMessageSender"/>
@@ -18,5 +20,17 @@
         </constructor-arg>
         <constructor-arg value="{message url}"/>
     </bean>
+
+    <bean id="speedAspect" class="com.nhnacademy.spring.core.SpeedAspect"/>
+
+    <aop:config>
+        <aop:pointcut id="doorayMessageSenderPointcut" expression="execution(public boolean com.nhnacademy.spring.core.DoorayMessageSender.sendMessage(..))"/>
+
+        <aop:aspect id="speedAspect" ref="speedAspect">
+            <aop:around
+                    pointcut-ref="doorayMessageSenderPointcut"
+                    method="doStopWatch"/>
+        </aop:aspect>
+    </aop:config>
 
 </beans>
