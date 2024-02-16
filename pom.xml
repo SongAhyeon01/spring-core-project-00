@@ -47,6 +47,11 @@
             <artifactId>spring-web</artifactId>
             <version>4.3.8.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>5.3.15</version>
+        </dependency>
 
         <dependency>
             <groupId>com.nhn.dooray.messenger</groupId>
@@ -60,7 +65,6 @@
             <version>2.13.2.2</version>
         </dependency>
 
-        <!--  logging  -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -72,7 +76,6 @@
             <version>1.2.11</version>
         </dependency>
 
-        <!--  testing  -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -98,6 +101,5 @@
         </dependency>
 
     </dependencies>
-
 
 </project>

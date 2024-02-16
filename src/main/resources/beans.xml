@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="messageSendService" class="com.nhnacademy.spring.core.MessageSendService">
+        <constructor-arg ref="doorayMessageSender"/>
+    </bean>
+
+    <bean id="doorayMessageSender" class="com.nhnacademy.spring.core.DoorayMessageSender">
+        <constructor-arg ref="doorayHookSender"/>
+    </bean>
+
+    <bean id="doorayHookSender" class="com.nhn.dooray.client.DoorayHookSender">
+        <constructor-arg>
+            <bean class="org.springframework.web.client.RestTemplate"/>
+        </constructor-arg>
+        <constructor-arg value="https://hook.dooray.com/services/3204376758577275363/3738651962004364986/HByzZBRuRu69-EUTsWR0tg"/>
+    </bean>
+
+</beans>
