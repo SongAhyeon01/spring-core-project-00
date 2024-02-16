@@ -9,7 +9,7 @@ public class XmlMain {
             MessageSendService service = context.getBean("messageSendService", MessageSendService.class);
 
             User user = new User("no name", "010-0000-0000");
-            String message = "test";
+            String message = "test1";
 
             service.doMessage(user, message);
         }

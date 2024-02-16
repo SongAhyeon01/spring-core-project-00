@@ -18,7 +18,7 @@
         <constructor-arg>
             <bean class="org.springframework.web.client.RestTemplate"/>
         </constructor-arg>
-        <constructor-arg value="{message url}"/>
+        <constructor-arg value="https://hook.dooray.com/services/3204376758577275363/3738651962004364986/HByzZBRuRu69-EUTsWR0tg"/>
     </bean>
 
     <bean id="speedAspect" class="com.nhnacademy.spring.core.SpeedAspect"/>
